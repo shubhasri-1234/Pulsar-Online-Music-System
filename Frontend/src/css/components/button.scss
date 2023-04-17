@@ -1,0 +1,23 @@
+.button-container {
+    color: white;
+    background-color: $color-yellow;
+    padding: 7px 30px;
+    width: fit-content;
+    border-radius: 100px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.9;
+    }
+    &.loading {
+        background-color: rgba($color: $color-yellow, $alpha: 0.6);
+        pointer-events: none;
+        user-select: none;
+        cursor: wait;
+    }
+    &.secondary {
+        background: transparent;
+        border: 1px solid $color-yellow;
+    }
+}

@@ -1,0 +1,66 @@
+.login-container {
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .login-block {
+        display: flex;
+        border-radius: 5px;
+        background-color: white;
+        overflow: auto;
+        .stock-img {
+            position: relative;
+            overflow: hidden;
+            background-color: $color-yellow;
+            img {
+                width: 400px;
+                object-fit: cover;
+                filter: grayscale(1);
+                transform: scale(1.1);
+                transform-origin: bottom;
+            }
+            .logo-container {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                padding: 0;
+                z-index: 100;
+                background: transparent;
+                cursor: pointer;
+                .logo {
+                    width: 40px;
+                }
+            }
+        }
+        .form-container {
+            color: black;
+            min-width: 400px;
+            padding: 50px 30px;
+            margin-bottom: 30px;
+            .header {
+                font-size: 25px;
+                font-weight: 600;
+                margin-bottom: 30px;
+            }
+            .description {
+
+            }
+            .button-container {
+                width: 100%;
+                margin-top: 50px;
+            }
+            .sign-up {
+                text-align: center;
+                font-size: 15px;
+                margin-top: 50px;
+                a {
+                    text-decoration: none;
+                    color: $color-yellow;
+                    font-weight: 600;
+                    margin-left: 3px;
+                }
+            }
+        }
+    }
+}

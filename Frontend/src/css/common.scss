@@ -1,0 +1,204 @@
+body {
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	margin: 0px;
+	padding: 0px;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+// variables
+$color-global: #d2b059;
+$color-yellow: #d2b059;
+$color-red: #ff425c;
+$color-blue: #5995fb;
+$color-green: #2ecc71;
+
+.background--style {
+    &[theme="yellow"] {
+        background: rgba(#d2b059, 0.1);
+    }
+    &[theme="red"] {
+        background: rgba(#ff425c, 0.1);
+    }
+    &[theme="blue"] {
+        background: rgba(#5995fb, 0.1);
+    }
+    &[theme="green"] {
+        background: rgba(#2ecc71, 0.1);
+    }
+}
+
+//scroll bar styles
+div {
+    //chrome
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #373737;
+        margin-left: 5px;
+    }
+
+    &::-webkit-scrollbar {
+        border-radius: 12px;
+        width: 10px;
+        background-color: #373737;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #6c6c6c;
+    }
+}
+
+// slider styles (input["type"]: range)
+
+// slider config
+$thumb-height: 15px;
+$track-height: 5px;
+
+// webkit cannot style progress so we fake it with a long shadow on the thumb element
+@function webkit-slider-thumb-shadow($i: 1) {
+    $val: #{$i}px 0 0 calc((-#{$thumb-height} - -#{$track-height}) / 2) #{#808080};
+    @if $i == 1 {
+        @for $k from 2 through 1000 {
+            $val: #{$val}, webkit-slider-thumb-shadow($k);
+        }
+    }
+    @return $val;
+}
+
+.slider--styles {
+    // chrome
+    &::-webkit-slider-runnable-track {
+        width: 100%;
+        max-width: 600px;
+        height: 30px;
+        background: linear-gradient(to bottom, var(--range-theme), var(--range-theme)) 100% 50% / 100% $track-height no-repeat transparent;
+    }
+    &::-webkit-slider-thumb {
+        position: relative;
+        appearance: none;
+        height: 14px;
+        width: 14px;
+        background: #2a2a2a;
+        border-radius: 50%;
+        border: 3px solid var(--range-theme);
+        top: 50%;
+        margin-top: -7px;
+        box-shadow: webkit-slider-thumb-shadow();
+    }
+    // firefox
+    &::-moz-range-track,
+    &::-moz-range-progress {
+        width: 100%;
+        height: inherit;
+        background: linear-gradient(to bottom, #808080, #808080) 100% 50% / 100% $track-height no-repeat transparent;
+    }
+
+    &::-moz-range-progress {
+        background: linear-gradient(to bottom, var(--range-theme), var(--range-theme)) 100% 50% / 100% $track-height no-repeat transparent;
+    }
+
+    &::-moz-range-thumb {
+        position: relative;
+        appearance: none;
+        height: 10px;
+        width: 10px;
+        margin: 0;
+        background: #2a2a2a;
+        border-radius: 100%;
+        border: 3px solid var(--range-theme);
+    }
+}
+
+.app {
+    position: relative;
+    $color-yellow: var(--theme) !global;
+}
+
+.section-container {
+    min-height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    background: linear-gradient(290deg, rgba(0,0,0,1) 0%, rgba(47,47,49,1) 80%);
+}
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    .site-header {
+        position: relative;
+        display: flex;
+        z-index: 100;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: $color-yellow;
+        }
+    }
+}
+
+.modal-open {
+    .modal-content {
+        background-color: #333333;
+    }
+    .modal-footer {
+        border-top: none;
+        .custom-modal-button {
+            color: white;
+            background-color: var(--button-theme);
+            &.disabled {
+                opacity: 0.6;
+                pointer-events: none;
+                user-select: none;
+                cursor: default;
+            }
+            &.secondary {
+                background: transparent;
+                border: 1px solid var(--button-theme);
+            }
+        }
+    }
+}
+
+// .shimmer {
+// 	position: relative;
+// 	overflow: hidden;
+// 	background: #f2f2f2;
+// 	box-sizing: border-box;
+// 	border-radius: $default-radius;
+// 	&:after {
+// 		content: " ";
+// 		white-space: pre;
+// 		animation-duration: 2s;
+// 		animation-fill-mode: forwards;
+// 		animation-iteration-count: infinite;
+// 		animation-name: placeHolderShimmer;
+// 		animation-timing-function: ease-in-out;
+// 		background: linear-gradient(to right, rgba(228, 226, 226, 0) 0%, #979797 50%, rgba(228, 226, 226, 0) 100%);
+// 		background-size: 100%;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		position: absolute;
+// 		background-repeat: no-repeat;
+// 		will-change: transform, opacity;
+// 	}
+// }

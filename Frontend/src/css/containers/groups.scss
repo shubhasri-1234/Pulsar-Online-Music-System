@@ -1,0 +1,133 @@
+.groups-container {
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    .main-view {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background: linear-gradient(290deg, rgba(0,0,0,1) 0%, rgba(47,47,49,1) 80%);
+    }
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 15px 30px;
+        .chat-header-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            .user-container {
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+                .icon {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                    background-color: #555150;
+                    &.friends {
+                        border-radius: 50%;
+                    }
+                }
+                .name {
+                    font-size: 35px;
+                }
+            }
+            .view {
+                font-size: 20px;
+                margin-left: 40px;
+                color: #919191;
+                cursor: pointer;
+            }
+        }
+        .messages-container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 30px;
+            margin: 10px 0 20px 0;
+            height: 100%;
+            overflow-y: auto;
+            background: linear-gradient(110deg, rgba(0,0,0,0.4) 0%, rgba(47,47,49,0.5) 80%);
+            border-radius: 4px;
+            .message {
+                position: relative;
+                width: fit-content;
+                padding: 6px 15px;
+                border-radius: 5px;
+                font-size: 16px;
+                margin-top: 15px;
+                max-width: 400px;
+                line-height: 1.2;
+                &:first-child {
+                    margin-top: auto;
+                }
+                &.right {
+                    margin-right: auto;
+                    background-color: #cecece;
+                    color: black;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: -9px;
+                        left: -12px;
+                        width: 25px;
+                        height: 25px;
+                        background: #cecece;
+                        clip-path: polygon(0% 100%, 50% 0%, 100% 150%);
+                        rotate: 292deg;
+                    }
+                }
+                &.left {
+                    margin-left: auto;
+                    background: $color-yellow;
+                    color: black;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: -8px;
+                        right: -12px;
+                        width: 25px;
+                        height: 25px;
+                        background: $color-yellow;
+                        clip-path: polygon(0% 100%, 50% 0%, 100% 150%);
+                        rotate: 59deg;
+                    }
+                }
+            }
+        }
+        .input-message-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(110deg, rgba(0,0,0,0.4) 0%, rgba(47,47,49,0.5) 80%);
+            border-radius: 4px;
+            padding: 20px 25px;
+            .input-field-container {
+                margin: 0;
+                width: 100%;
+                .at-input {
+                    height: 38px;
+                    width: 100%;
+                    padding: 0px 10px;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    outline: none;
+                    border: 1px solid $color-yellow;
+                    background: #1a1a1a;
+                    color: $color-yellow;
+                    word-spacing: 2px;
+                    &::placeholder {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .send-icon {
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    a {
+        text-decoration: none;
+        color: white;
+        margin-right: 6%;
+        flex-shrink: 0;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .tab {
+        position: relative;
+        cursor: pointer;
+        transition: 200ms ease-out;
+        padding: 15px 0;
+        .text {
+            font-size: 18px;
+        }
+        &:hover {
+            color: $color-yellow;
+        }
+        &.selected {
+            color: $color-yellow;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-yellow;
+            }
+        }
+        .dropdown {
+            position: absolute;
+            right: 27px;
+            bottom: -75px;
+            width: 130px;
+            color: white;
+            background: #343434;
+            z-index: 1000;
+            border-radius: 4px;
+            .action {
+                padding: 10px 20px;
+                &:hover {
+                    color: $color-yellow;
+                }
+            }
+        }
+    }
+    &.secure {
+        width: 100%;
+        background: linear-gradient(90deg, rgba(25,25,25,1) 0%, rgba(32,32,32,1) 100%);
+        padding-right: 10px;
+        // overflow-x: hidden;
+        // overflow-y: visible;
+        // hide scroll bar
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        a {
+            margin: 0;
+            &:first-child {
+                margin-left: auto;
+            }
+        }
+        .tab {
+            padding: 18px 30px;
+            max-height: 60px;
+            flex-shrink: 0;
+            &.selected {
+                color: $color-yellow;
+                @extend .background--style;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        .input-search-container {
+            display: flex;
+            align-items: center;
+            padding: 18px 30px;
+            margin: 0;
+            position: relative;
+            svg {
+                transition: 200ms ease-out;
+            }
+            &.selected {
+                width: 100%;
+                padding: 12px 30px;
+                .search-icon {
+                    position: absolute;
+                    left: 40px;
+                }
+            }
+            .input-field-container {
+                margin: 0;
+                min-width: 300px;
+                .at-input {
+                    height: 34px;
+                    width: 100%;
+                    padding: 0px 10px;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    outline: none;
+                    border: 1px solid $color-yellow;
+                    background: transparent;
+                    color: $color-yellow;
+                    padding-left: 40px;
+                }
+            }
+        }
+    }
+}

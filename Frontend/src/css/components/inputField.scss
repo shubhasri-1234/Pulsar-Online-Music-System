@@ -1,0 +1,44 @@
+.input-field-container {
+    position: relative;
+    margin-bottom: 30px;
+    .meta-info {
+        font-size: 14px;
+        color: 3e495f;
+    }
+    .at-input {
+        height: 34px;
+	    width: 100%;
+	    padding: 0px 10px;
+	    box-sizing: border-box;
+        border-radius: 4px;
+	    outline: none;
+	    border: 1px solid #bdc5c8;
+        &::placeholder {
+            font-size: 15px;
+        }
+    }
+    .validation-message {
+        position: absolute !important;
+        margin-top: 2px;
+        font-size: 12px;
+        position: relative;
+        color: $color-red;
+    }
+    &.create-group {
+        padding: 0 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .at-input {
+            height: 34px;
+            width: 100%;
+            padding: 0px 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            outline: none;
+            border: 1px solid #6c6c6c;
+            background: transparent;
+            color: white;
+        }
+    }
+}
