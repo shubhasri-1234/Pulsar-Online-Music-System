@@ -1,7 +1,5 @@
 # Pulsar-Online-Music-System
 
-# Pulsar - Online Music System
-
 Pulsar is an Online Music System, where users can chat with friends, create and join artist fan groups as well as listen to their favorite songs of various artists!
 
 # Tech Stack used: 
